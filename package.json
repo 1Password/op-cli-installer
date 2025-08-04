@@ -1,0 +1,55 @@
+{
+	"name": "op-cli-installer",
+	"version": "1.0.0",
+	"description": "Install the 1Password CLI to access and manage 1Password items in your Node.js applications",
+	"type": "commonjs",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"clean": "rimraf dist",
+		"build": "tsc -p tsconfig.json",
+		"format": "prettier",
+		"format:check": "npm run format -- --check ./",
+		"format:write": "npm run format -- --write ./",
+		"lint": "eslint",
+		"lint:fix": "npm run lint -- --fix",
+		"prepare": "npm run build",
+		"prepack": "npm run clean && npm run build",
+		"test": "jest",
+		"typecheck": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/1Password/op-cli-installer.git"
+	},
+	"keywords": [
+		"1Password",
+		"CLI"
+	],
+	"author": "1Password",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/1Password/op-cli-installer.git/issues"
+	},
+	"homepage": "https://github.com/1Password/op-cli-installer#readme",
+	"dependencies": {
+		"@actions/core": "^1.11.1",
+		"@actions/tool-cache": "^2.0.2",
+		"semver": "^7.7.2"
+	},
+	"devDependencies": {
+		"@1password/eslint-config": "^8.1.0",
+		"@1password/prettier-config": "^1.2.0",
+		"@types/jest": "^30.0.0",
+		"@types/node": "^24.2.0",
+		"@types/semver": "^7.7.0",
+		"eslint": "^9.32.0",
+		"husky": "^9.1.7",
+		"jest": "^30.0.5",
+		"lint-staged": "^16.1.4",
+		"ts-jest": "^29.4.1",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.39.0"
+	},
+	"prettier": "@1password/prettier-config"
+}
