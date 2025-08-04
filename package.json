@@ -11,7 +11,7 @@
 		"format": "prettier",
 		"format:check": "npm run format -- --check ./",
 		"format:write": "npm run format -- --write ./",
-		"lint": "eslint",
+		"lint": "eslint src/**/*.ts",
 		"lint:fix": "npm run lint -- --fix",
 		"prepare": "npm run build",
 		"prepack": "npm run clean && npm run build",

@@ -3,7 +3,6 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config({
 	extends: [opLintConfig],
-	files: ["src/**/*.ts"],
 	ignores: ["dist"],
 	languageOptions: {
 		parserOptions: {
