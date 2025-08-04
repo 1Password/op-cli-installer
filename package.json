@@ -9,7 +9,7 @@
 		"clean": "rimraf dist",
 		"build": "tsc -p tsconfig.json",
 		"format": "prettier",
-		"format:check": "npm run format -- --check ./",
+		"format:check": "npm run format -- --list-different  ./",
 		"format:write": "npm run format -- --write ./",
 		"lint": "eslint src/**/*.ts",
 		"lint:fix": "npm run lint -- --fix",
