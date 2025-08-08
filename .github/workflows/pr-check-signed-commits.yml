@@ -1,0 +1,13 @@
+on: pull_request_target
+name: Check signed commits in PR
+
+jobs:
+  build:
+    name: Check signed commits in PR
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check signed commits in PR
+        uses: 1Password/check-signed-commits-action@v1

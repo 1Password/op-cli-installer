@@ -1,0 +1,19 @@
+on: push
+name: Run tests
+
+jobs:
+  jest-tests:
+    name: "Type check, lint, format, and test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Type check
+        run: npm run typecheck
+      - name: Lint code
+        run: npm run lint
+      - name: Check formatting
+        run: npm run format:check
+      - name: Run Jest tests
+        run: npm run test
