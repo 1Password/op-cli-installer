@@ -21,13 +21,13 @@ describe("VersionResolver", () => {
 	});
 
 	test("should resolve latest stable version", async () => {
-		const versionResolver = new VersionResolver(ReleaseChannel.Stable);
+		const versionResolver = new VersionResolver(ReleaseChannel.latest);
 		await versionResolver.resolve();
 		expect(versionResolver.get()).toBeDefined();
 	});
 
 	test("should resolve latest beta version", async () => {
-		const versionResolver = new VersionResolver(ReleaseChannel.Beta);
+		const versionResolver = new VersionResolver(ReleaseChannel.latestBeta);
 		await versionResolver.resolve();
 		expect(versionResolver.get()).toBeDefined();
 	});

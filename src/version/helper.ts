@@ -11,7 +11,8 @@ export const getLatestVersion = async (
 	const json = (await res.json()) as VersionResponse;
 	const latestStable = json?.CLI2?.release?.version;
 	const latestBeta = json?.CLI2?.beta?.version;
-	const version = channel === ReleaseChannel.Beta ? latestBeta : latestStable;
+	const version =
+		channel === ReleaseChannel.latestBeta ? latestBeta : latestStable;
 
 	if (!version) {
 		core.error(`No ${channel} versions found`);

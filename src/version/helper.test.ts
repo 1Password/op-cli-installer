@@ -20,7 +20,7 @@ describe("getLatestVersion", () => {
 			json: async () => mockResponse,
 		} as Response);
 
-		const version = await getLatestVersion(ReleaseChannel.Stable);
+		const version = await getLatestVersion(ReleaseChannel.latest);
 		expect(version).toBe("2.31.0");
 	});
 
@@ -38,7 +38,7 @@ describe("getLatestVersion", () => {
 			json: async () => mockResponse,
 		} as Response);
 
-		const version = await getLatestVersion(ReleaseChannel.Beta);
+		const version = await getLatestVersion(ReleaseChannel.latestBeta);
 		expect(version).toBe("2.32.0-beta.01");
 	});
 
@@ -48,8 +48,8 @@ describe("getLatestVersion", () => {
 			json: async () => ({}),
 		} as Response);
 
-		await expect(getLatestVersion(ReleaseChannel.Stable)).rejects.toThrow(
-			`No ${ReleaseChannel.Stable} versions found`,
+		await expect(getLatestVersion(ReleaseChannel.latest)).rejects.toThrow(
+			`No ${ReleaseChannel.latest} versions found`,
 		);
 	});
 
@@ -66,8 +66,8 @@ describe("getLatestVersion", () => {
 			json: async () => mockResponse,
 		} as Response);
 
-		await expect(getLatestVersion(ReleaseChannel.Stable)).rejects.toThrow(
-			`No ${ReleaseChannel.Stable} versions found`,
+		await expect(getLatestVersion(ReleaseChannel.latest)).rejects.toThrow(
+			`No ${ReleaseChannel.latest} versions found`,
 		);
 	});
 
@@ -84,8 +84,8 @@ describe("getLatestVersion", () => {
 			json: async () => mockResponse,
 		} as Response);
 
-		await expect(getLatestVersion(ReleaseChannel.Beta)).rejects.toThrow(
-			`No ${ReleaseChannel.Beta} versions found`,
+		await expect(getLatestVersion(ReleaseChannel.latestBeta)).rejects.toThrow(
+			`No ${ReleaseChannel.latestBeta} versions found`,
 		);
 	});
 });
