@@ -8,7 +8,7 @@ import { newCliInstaller } from "./cli-installer";
 export const installCliOnGithubActionRunner = async (
 	version?: string,
 ): Promise<void> => {
-	// Get the version from the input. Defaults to latest if no version is provided
+	// Get the version from parameter, if not passed - from the job input. Defaults to latest if no version is provided
 	const providedVersion =
 		version || core.getInput("version") || ReleaseChannel.latest;
 	const versionResolver = new VersionResolver(providedVersion);
