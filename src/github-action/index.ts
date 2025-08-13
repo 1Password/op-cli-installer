@@ -1,12 +1,12 @@
 import * as core from "@actions/core";
 
-import { VersionResolver } from "../version";
+import { ReleaseChannel, VersionResolver } from "../version";
 
 import { newCliInstaller } from "./cli-installer";
 
 // Installs the 1Password CLI on a GitHub Action runner.
 export const installCliOnGithubActionRunner = async (
-	version?: string,
+	version: string = ReleaseChannel.latest,
 ): Promise<void> => {
 	const versionResolver = new VersionResolver(
 		version ?? core.getInput("version"),
