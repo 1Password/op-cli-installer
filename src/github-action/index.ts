@@ -6,11 +6,12 @@ import { newCliInstaller } from "./cli-installer";
 
 // Installs the 1Password CLI on a GitHub Action runner.
 export const installCliOnGithubActionRunner = async (
-	version: string = ReleaseChannel.latest,
+	version?: string,
 ): Promise<void> => {
-	const versionResolver = new VersionResolver(
-		version ?? core.getInput("version"),
-	);
+	// Get the version from the input. Defaults to latest if no version is provided
+	const providedVersion =
+		version || core.getInput("version") || ReleaseChannel.latest;
+	const versionResolver = new VersionResolver(providedVersion);
 	await versionResolver.resolve();
 	const installer = newCliInstaller(versionResolver.get());
 	await installer.installCli();
